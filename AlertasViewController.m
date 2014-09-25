@@ -36,30 +36,39 @@
 
 - (IBAction)alertaSimple:(id)sender {
     alerta = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Hola jhon desde una Alerta" delegate:self cancelButtonTitle:@"Aceptar" otherButtonTitles:@"Cancelar",nil];
+    alerta.tag = 1;
     [alerta show];
     
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    switch (buttonIndex) {
-        case 0:
-            NSLog(@"Clic en boton Aceptar");
-            break;
-                  case 1:
-                  NSLog(@"Clic en boton Cancelar");
-                  break;
-                  case 2:
-                  NSLog(@"Clic en boton Omitir");
-                  break;
+    if (alertView.tag == 1) {
+        switch (buttonIndex) {
+            case 0:
+                NSLog(@"Clic en boton Aceptar");
+                break;
+            case 1:
+                NSLog(@"Clic en boton Cancelar");
+                break;
+            case 2:
+                NSLog(@"Clic en boton Omitir");
+                break;
+        }
+
+    }else if (alertView.tag == 2){
+        NSLog(@"El usuario ingresado fue: %@ con clave %@",[alertView textFieldAtIndex:0].text, [alertView textFieldAtIndex:1].text);
     }
-}
+    }
 
 - (IBAction)alertaCampos:(id)sender {
     alerta = [[UIAlertView alloc]initWithTitle:@"Confirmar Usuario" message:@"Introduce tu usuario y contraseña" delegate:self cancelButtonTitle:@"Cancelar" otherButtonTitles:@"Pagar", nil];
     alerta.alertViewStyle = UIAlertViewStyleLoginAndPasswordInput;
+    alerta.tag = 2;
     [alerta show];
 }
 
 - (IBAction)hojaAcciones:(id)sender {
+    UIActionSheet * menuOpciones = [[UIActionSheet alloc]initWithTitle:@"MENU" delegate:self cancelButtonTitle:@"Cerrar" destructiveButtonTitle:@"Borrar" otherButtonTitles:@"Enviar",@"Omitir",@"Compartir", nil];
+    [menuOpciones showInView:self.view];
 }
 @end
