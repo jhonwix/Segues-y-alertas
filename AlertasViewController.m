@@ -71,4 +71,24 @@
     UIActionSheet * menuOpciones = [[UIActionSheet alloc]initWithTitle:@"MENU" delegate:self cancelButtonTitle:@"Cerrar" destructiveButtonTitle:@"Borrar" otherButtonTitles:@"Enviar",@"Omitir",@"Compartir", nil];
     [menuOpciones showInView:self.view];
 }
+-(void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    switch (buttonIndex) {
+        case 0:
+            NSLog(@"Clic en Borrar");
+            break;
+        case 1:
+            NSLog(@"Clic en Enviar");
+            break;
+        case 2:
+            NSLog(@"Clic en Omitir");
+            break;
+        case 3:
+            NSLog(@"Clic en Compartir");
+            break;
+        case 4:
+            NSLog(@"Clic en Cerrar");
+            break;
+       
+    }
+}
 @end
