@@ -43,7 +43,7 @@
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     switch (buttonIndex) {
         case 0:
-            NSLog(@"Clic en boton Aceptar);
+            NSLog(@"Clic en boton Aceptar");
             break;
                   case 1:
                   NSLog(@"Clic en boton Cancelar");
@@ -55,6 +55,9 @@
 }
 
 - (IBAction)alertaCampos:(id)sender {
+    alerta = [[UIAlertView alloc]initWithTitle:@"Confirmar Usuario" message:@"Introduce tu usuario y contraseña" delegate:self cancelButtonTitle:@"Cancelar" otherButtonTitles:@"Pagar", nil];
+    alerta.alertViewStyle = UIAlertViewStyleLoginAndPasswordInput;
+    [alerta show];
 }
 
 - (IBAction)hojaAcciones:(id)sender {
